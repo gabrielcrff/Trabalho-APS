@@ -1,0 +1,42 @@
+// Programação JavaScript
+// turma = 963N
+// nome = Gabriel Fabiano dos Anjos real
+// Matricula = 2024100877
+
+// Função para verificar se um número é primo
+function isPrime(num) {
+    if (num <= 1) return false;
+    if (num <= 3) return true;
+
+    if (num % 2 === 0 || num % 3 === 0) return false;
+
+    let i = 5;
+    while (i * i <= num) {
+        if (num % i === 0 || num % (i + 2) === 0) return false;
+        i += 6;
+    }
+    return true;
+}
+
+// Função para encontrar os 10 maiores números primos a partir de um número fornecido pelo usuário
+function findLargestPrimes() {
+    const userInput = parseInt(prompt("Digite um número:"));
+    let count = 0;
+    let num = userInput;
+    let largestPrimes = [];
+
+    while (count < 10) {
+        if (isPrime(num)) {
+            largestPrimes.push(num);
+            count++;
+        }
+        num++;
+    }
+
+    console.log("Os 10 maiores números primos a partir de", userInput, "são:");
+    console.log(largestPrimes);
+
+}
+
+// Chamando a função para encontrar os 10 maiores números primos
+findLargestPrimes();
